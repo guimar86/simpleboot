@@ -1,11 +1,14 @@
 pipeline{
     agent any
-    def mvnTool="maven-3.8.4"
+tools{
+    maven 'maven-3.8.4'
+}
+    
     stages{
         stage("Build"){
             steps{
-                sh " ${mvnTool}/bin/ mvn build"
-                sh "${mvnTool}/bin/ mvn clean install"
+                sh "mvn build"
+                sh "mvn clean install"
                 
             }
         

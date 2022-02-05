@@ -1,11 +1,12 @@
-{
-    agent:any
+pipeline{
+    agent any
     stages{
-        stage("A"){
+        stage("Build"){
             steps{
                 sh "mvn build"
                 sh "mvn clean install"
             }
+        
             post{
                 always{
                     cleanWs()
